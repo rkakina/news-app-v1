@@ -22,13 +22,11 @@ import java.util.List;
 public class NewsActivity extends AppCompatActivity
         implements LoaderCallbacks<List<News>> {
 
-    private static final String LOG_TAG = NewsActivity.class.getName(); //For logging purposes
-
     /**
      * URL for news articles from the TheGuardian API
      */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?section=technology&from-date=2018-01-01&order-by=newest&show-tags=contributor&api-key=c899a59e-1839-4a73-8f58-3572a77876b8";
+            "https://content.guardianapis.com/search?section=technology&from-date=2018-01-01&order-by=newest&show-tags=contributor&q=tesla&api-key=c899a59e-1839-4a73-8f58-3572a77876b8";
 
 
     private static final int NEWS_LOADER_ID = 1; //Constant for NewsLoader ID.

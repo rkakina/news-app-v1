@@ -60,7 +60,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         //Get the date view and pass the datetime
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
-        dateView.setText(currentArticle.getDateTimeAsString());
+        dateView.setText(dateFormat(currentArticle.getDateTimeAsString()));
 
         //Get the author view and pass the author's name
         TextView authorView = (TextView) listItemView.findViewById(R.id.author);
@@ -68,6 +68,20 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
+    }
+
+    /**
+     *
+     * @param dateTimeAsString A datetime in the String format
+     * @return A nicer String that doesn't show the T or Z.
+     */
+    public static String dateFormat(String dateTimeAsString) {
+        String currentDateTime = dateTimeAsString;
+        String[] separated = currentDateTime.split("T");
+        separated[1]=separated[1].substring(0,separated[1].length()-1);
+        String fixedDateTime=separated[0]+" "+separated[1];
+
+        return fixedDateTime;
     }
 
 }
