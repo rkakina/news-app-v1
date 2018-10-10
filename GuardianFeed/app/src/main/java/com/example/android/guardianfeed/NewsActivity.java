@@ -22,22 +22,25 @@ import java.util.List;
 public class NewsActivity extends AppCompatActivity
         implements LoaderCallbacks<List<News>> {
 
-    private static final String LOG_TAG = NewsActivity.class.getName();
+    private static final String LOG_TAG = NewsActivity.class.getName(); //For logging purposes
 
-    /** URL for news articles from the TheGuardian API */
+    /**
+     * URL for news articles from the TheGuardian API
+     */
     private static final String GUARDIAN_REQUEST_URL =
             "https://content.guardianapis.com/search?section=technology&from-date=2018-01-01&order-by=newest&show-tags=contributor&api-key=c899a59e-1839-4a73-8f58-3572a77876b8";
 
-    /**
-     * Constant value for the News loader ID. We can choose any integer.
-     * This really only comes into play if you're using multiple loaders.
-     */
-    private static final int NEWS_LOADER_ID = 1;
 
-    /** Adapter for the list of News */
+    private static final int NEWS_LOADER_ID = 1; //Constant for NewsLoader ID.
+
+    /**
+     * Adapter for the list of News
+     */
     private NewsAdapter mAdapter;
 
-    /** TextView that is displayed when the list is empty */
+    /**
+     * TextView that is displayed when the list is empty
+     */
     private TextView mEmptyStateTextView;
 
     @Override
@@ -48,6 +51,7 @@ public class NewsActivity extends AppCompatActivity
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) findViewById(R.id.list);
 
+        //Finds a reference to the empty state view.
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
@@ -120,7 +124,7 @@ public class NewsActivity extends AppCompatActivity
         mEmptyStateTextView.setText(R.string.no_articles);
 
         // Clear the adapter of previous News data
-        //mAdapter.clear();
+        mAdapter.clear();
 
         // If there is a valid list of News, then add them to the adapter's
         // data set. This will trigger the ListView to update.

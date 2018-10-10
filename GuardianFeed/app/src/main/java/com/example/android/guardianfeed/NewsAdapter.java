@@ -15,9 +15,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * An {@link NewsAdapter} knows how to create a list item layout for each News
+ * An {@link NewsAdapter} knows how to create a list item layout for each News item
  * in the data source (a list of {@link News} objects).
- *
+ * <p>
  * These list item layouts will be provided to an adapter view like ListView
  * to be displayed to the user.
  */
@@ -26,7 +26,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
     /**
      * Constructs a new {@link NewsAdapter}.
      *
-     * @param context of the app
+     * @param context  of the app
      * @param articles is the list of News, which is the data source of the adapter
      */
     public NewsAdapter(Context context, List<News> articles) {
@@ -50,23 +50,24 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Find the News at the given position in the list of News
         News currentArticle = getItem(position);
 
+        //Get the section view and pass the section id
         TextView sectionView = (TextView) listItemView.findViewById(R.id.section);
         sectionView.setText(currentArticle.getSection());
 
+        //Get the title view and pass the article title
         TextView titleView = (TextView) listItemView.findViewById(R.id.title);
         titleView.setText(currentArticle.getTitle());
 
+        //Get the date view and pass the datetime
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
         dateView.setText(currentArticle.getDateTimeAsString());
 
+        //Get the author view and pass the author's name
         TextView authorView = (TextView) listItemView.findViewById(R.id.author);
         authorView.setText(currentArticle.getAuthor());
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
     }
-
-//insert code for FormatDate() here.
-
 
 }

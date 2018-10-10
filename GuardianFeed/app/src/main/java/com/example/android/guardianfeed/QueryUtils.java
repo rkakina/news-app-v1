@@ -24,7 +24,9 @@ import java.util.List;
  */
 public final class QueryUtils {
 
-    /** Tag for the log messages */
+    /**
+     * Tag for the log messages
+     */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
     /**
@@ -156,25 +158,27 @@ public final class QueryUtils {
             JSONObject responseObject = baseJsonResponse.getJSONObject("response");
             JSONArray resultsArray = responseObject.getJSONArray("results");
             int results = resultsArray.length();
-            Log.i(LOG_TAG,"number of results:"+results);
+            Log.i(LOG_TAG, "number of results:" + results);
             if (resultsArray.length() > 0) {
                 for (int i = 0; i < resultsArray.length(); i++) {
 
                     JSONObject currentArticle = resultsArray.getJSONObject(i);
                     String section = currentArticle.getString("sectionId");
                     String title = currentArticle.getString("webTitle");
-                    Log.i(LOG_TAG,"Article title:"+title);
+                    Log.i(LOG_TAG, "Article title:" + title);
                     String date = currentArticle.getString("webPublicationDate");
                     String link = currentArticle.getString("webUrl");
 
+                    //The author name is inside of the tags array, which is a layer deeper.
+                    //Sometimes articles will not have authors included, so if they don't then "author unlisted" is displayed.
                     JSONArray tagsArray = currentArticle.getJSONArray("tags");
                     String author = "Author unlisted";
-                    if(tagsArray.length() > 0) {
+                    if (tagsArray.length() > 0) {
                         JSONObject tagsObject = tagsArray.getJSONObject(0);
                         author = tagsObject.getString("webTitle");
                     }
 
-                    News newNews = new News(section,title,date,author,link);
+                    News newNews = new News(section, title, date, author, link);
                     articles.add(newNews);
                 }
             }

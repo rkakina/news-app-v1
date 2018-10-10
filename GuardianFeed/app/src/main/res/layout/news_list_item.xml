@@ -23,7 +23,7 @@
         android:textColor="@android:color/black"
         android:textStyle="bold"
         android:textSize="14sp"
-        tools:text="Section Name"
+        tools:text="Title Name"
         />
 
     <TextView
@@ -32,7 +32,7 @@
         android:id="@+id/date"
         android:textColor="@android:color/black"
         android:textSize="12sp"
-        tools:text="Section Name"
+        tools:text="Date"
         />
 
     <TextView
@@ -41,7 +41,7 @@
         android:id="@+id/author"
         android:textColor="@android:color/black"
         android:textSize="12sp"
-        tools:text="Section Name"
+        tools:text="Author"
         />
 
 </LinearLayout>

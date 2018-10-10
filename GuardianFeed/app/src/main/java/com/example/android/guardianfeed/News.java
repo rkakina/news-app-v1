@@ -1,20 +1,27 @@
 package com.example.android.guardianfeed;
 
 /**
- * An {@link News} object contains information related to a single News.
+ * An {@link News} object contains information related to a single News item.
  */
 public class News {
 
-    private String section;
+    private String section; //The name of the Section
 
-    private String title;
+    private String title;   //The title of the article
 
-    private String dateTimeAsString;
+    private String dateTimeAsString;    //The date-time of the article
 
-    private String author;
+    private String author;  //The author of the article
 
-    private String link;
+    private String link;    //The link to the article
 
+    /**
+     * @param sectionInput          The section name
+     * @param titleInput            The title
+     * @param dateTimeAsStringInput The date and time
+     * @param authorInput           The author
+     * @param linkInput             The url
+     */
     public News(String sectionInput, String titleInput, String dateTimeAsStringInput, String authorInput, String linkInput) {
         section = sectionInput;
         title = titleInput;
@@ -23,15 +30,40 @@ public class News {
         link = linkInput;
     }
 
-    public String getSection() { return section;}
+    /**
+     * @return Returns the name of the section
+     */
+    public String getSection() {
+        return section;
+    }
 
-    public String getTitle() { return title;}
+    /**
+     * @return Returns the title of the article
+     */
+    public String getTitle() {
+        return title;
+    }
 
-    public String getDateTimeAsString() { return dateTimeAsString;}
+    /**
+     * @return Returns the date and time in the form of a string
+     */
+    public String getDateTimeAsString() {
+        return dateTimeAsString;
+    }
 
-    public String getAuthor() { return author;}
+    /**
+     * @return Returns the name of the author
+     */
+    public String getAuthor() {
+        return author;
+    }
 
-    public String getLink() { return link;}
+    /**
+     * @return Returns the URL of the article
+     */
+    public String getLink() {
+        return link;
+    }
 
 }
 
